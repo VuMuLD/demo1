@@ -2,13 +2,13 @@ package model;
 
 public class ChiTietHoaDon {
     private int ma_chi_tiet_hoa_don;
-    private int ma_hoa_don;
+    private String ma_hoa_don;
     private int ma_san_pham;
     private int so_luong;
     private int don_gia;
     private int giam_gia;
 
-    public ChiTietHoaDon(int ma_chi_tiet_hoa_don, int ma_hoa_don, int ma_san_pham, int so_luong, int don_gia, int giam_gia) {
+    public ChiTietHoaDon(int ma_chi_tiet_hoa_don, HoaDon ma_hoa_don, SanPham ma_san_pham, int so_luong, int don_gia, int giam_gia) {
         this.ma_chi_tiet_hoa_don = ma_chi_tiet_hoa_don;
         this.ma_hoa_don = ma_hoa_don;
         this.ma_san_pham = ma_san_pham;
@@ -25,11 +25,11 @@ public class ChiTietHoaDon {
         this.ma_chi_tiet_hoa_don = ma_chi_tiet_hoa_don;
     }
 
-    public int getMa_hoa_don() {
+    public String getMa_hoa_don() {
         return ma_hoa_don;
     }
 
-    public void setMa_hoa_don(int ma_hoa_don) {
+    public void setMa_hoa_don(String ma_hoa_don) {
         this.ma_hoa_don = ma_hoa_don;
     }
 

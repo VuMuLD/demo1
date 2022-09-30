@@ -36,15 +36,18 @@
 </head>
 <body>
 <%
-    GioHang cart = (GioHang) session.getAttribute("cart");
-    if (cart == null) {
-        cart = new GioHang();
-        session.setAttribute("cart", cart);
-    }
-    TreeMap<SanPham, Integer> list = cart.getList();
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect("/shop/account.jsp");
+    }else {
+        GioHang cart = (GioHang) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new GioHang();
+            session.setAttribute("cart", cart);
+        }
+        TreeMap<SanPham, Integer> list = cart.getList();
 
-    NumberFormat nf = NumberFormat.getInstance();
-    nf.setMinimumIntegerDigits(0);
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMinimumIntegerDigits(0);
 %>
 
 
@@ -114,92 +117,77 @@
                     <%
                         }
                     %>
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                        <td colspan="2">
+                            <table class="table table-condensed total-result">
+                                <tr>
+                                    <td>Cart Sub Total</td>
+                                    <td>$59</td>
+                                </tr>
+                                <tr>
+                                    <td>Exo Tax</td>
+                                    <td>$2</td>
+                                </tr>
+                                <tr class="shipping-cost">
+                                    <td>Shipping Cost</td>
+                                    <td>Free</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td><span>$61</span></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <a class="btn btn-default update" href="">Hủy Đơn Hàng </a>
                     </tbody>
                 </table>
             </div>
         </div>
     </section> <!--/#cart_items-->
 
-    <section id="do_action">
         <div class="container">
             <div class="heading">
                 <h3>What would you like to do next?</h3>
                 <p>Choose if you have a discount code or reward points you want to use or would like to estimate your
                     delivery cost.</p>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Coupon Code</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Gift Voucher</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Estimate Shipping & Taxes</label>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Country:</label>
-                                <select>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
+            <div class="step-one">
+                <h2 class="heading">Xác Nhập Mua Hàng</h2>
+            </div>
+            <div class="shopper-informations">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="shopper-info">
+                            <p>Xác nhận thanh toán</p>
+                            <form action="ThanhToanServlet" method="post">
+                                <input type="text" placeholder="Số điện thoại">
+                                <p>Địa chỉ giao hàng</p>
+                                <textarea name="dia_chi_giao_hang" placeholder="Note"
+                                          rows="5"></textarea>
 
-                            </li>
-                            <li class="single_field">
-                                <label>Region / State:</label>
-                                <select>
-                                    <option>Select</option>
-                                    <option>Dhaka</option>
-                                    <option>London</option>
-                                    <option>Dillih</option>
-                                    <option>Lahore</option>
-                                    <option>Alaska</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
+                                <p>Phương thức thanh toán:</p>
+                                <select name="phuong_thuc_thanh_toan">
+                                    <option value="1">Thanh Toán khi giao hàng</option>
+                                    <option value="2">Chuyển khoản ngân hàng</option>
                                 </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Zip Code:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Get Quotes</a>
-                        <a class="btn btn-default check_out" href="">Continue</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="total_area">
-                        <ul>
-                            <li>Cart Sub Total <span>$59</span></li>
-                            <li>Eco Tax <span>$2</span></li>
-                            <li>Shipping Cost <span>Free</span></li>
-                            <li>Total <span>$61</span></li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="">Check Out</a>
+                                <input type="hidden" value="<%=session.getAttribute("username")%>"/>
+                                <input type="submit" value="Xác nhận thanh toán" class="btn btn-primary">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section><!--/#do_action-->
 </section>
+<%
+    }
+%>
 
 <jsp:include page="footer.jsp"></jsp:include>
+
 
 </body>
 </html>

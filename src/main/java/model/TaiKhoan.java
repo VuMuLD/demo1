@@ -8,6 +8,15 @@ public class TaiKhoan {
     private int quyen_truy_cap;
     private int tinh_trang;
 
+    public TaiKhoan() {
+        this.ma_tai_khoan = ma_tai_khoan;
+        this.ten_tai_khoan = ten_tai_khoan;
+        this.ten_dang_nhap = ten_dang_nhap;
+        this.mat_khau = mat_khau;
+        this.quyen_truy_cap = quyen_truy_cap;
+        this.tinh_trang = tinh_trang;
+    }
+
     public TaiKhoan(String ma_tai_khoan, String ten_tai_khoan, String ten_dang_nhap, String mat_khau, int quyen_truy_cap, int tinh_trang) {
         this.ma_tai_khoan = ma_tai_khoan;
         this.ten_tai_khoan = ten_tai_khoan;

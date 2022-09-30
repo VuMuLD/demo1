@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TaiKhoanDAOImpl implements TaiKhoanDAO{
+public class TaiKhoanDAOImpl implements TaiKhoanDAO {
 
     @Override
     public boolean kiemTraTaiKhoan(String ten_dang_nhap) {
@@ -19,7 +19,7 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO{
         try {
             PreparedStatement ps = cons.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 return true;
             }
             cons.close();
@@ -49,20 +49,4 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO{
         }
     }
 
-    @Override
-    public boolean kiemTraDangNhap(String ten_dang_nhap, String mat_khau) {
-        Connection cons = DBContext.getInstance().getConnection();
-        String sql = "select * from tai_khoan where ten_dang_nhap = '" + ten_dang_nhap + " ' and mat_khau'" + mat_khau + "'";
-        try {
-            PreparedStatement ps = cons.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(TaiKhoanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return false;
-    }
 }

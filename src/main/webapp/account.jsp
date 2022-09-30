@@ -54,10 +54,6 @@
         mat_khau = (String) request.getAttribute("mat_khau");
     }
 
-    String err = "";
-    if (request.getAttribute("err") != null){
-        err = (String) request.getAttribute("err");
-    }
 %>
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -69,9 +65,9 @@
                 <div class="login-form"><!--login form-->
                     <h2>Đăng Nhập</h2>
                     <form action="DangNhapServlet" method="post">
-                        <p style="color:red"><%=err%></p>
+
                         <input type="email" placeholder="Địa Chỉ Email Đăng Nhập" name="ten_dang_nhap"/>
-                        <p style="color:red"><%=mat_khau_err%></p>
+
                         <input type="password" placeholder="Mật Khẩu" name="mat_khau"/>
                         <span>
 								<input type="checkbox" class="checkbox">
