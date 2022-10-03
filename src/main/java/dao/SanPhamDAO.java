@@ -10,4 +10,7 @@ public interface SanPhamDAO {
 
     //chi tiet san pham
     public SanPham getChiTietSanPham(int ma_san_pham);
+
+    public ArrayList<SanPham> getListProduct();
+
 }

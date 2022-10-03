@@ -2,6 +2,7 @@ package controller;
 
 import dao.TaiKhoanDAOImpl;
 import model.TaiKhoan;
+import tools.MaHoa;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -65,9 +66,9 @@ public class DangkyServlet extends HttpServlet {
         try {
             if (ten_tai_khoan_err.length() == 0 && ten_dang_nhap_err.length() == 0 && mat_khau_err.length() == 0) {
                 Date id = new Date();
-                TaiKhoan tk = new TaiKhoan();
+                TaiKhoan tk = new TaiKhoan("" + id.getTime(), ten_tai_khoan, ten_dang_nhap, mat_khau, 1, 1);
                 taiKhoanDAO.themTaiKhoan(tk);
-                url = "home";
+                url = "/index.jsp";
             } else {
                 url = "/account.jsp";
             }

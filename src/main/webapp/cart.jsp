@@ -37,7 +37,7 @@
 <body>
 <%
     if (session.getAttribute("username") == null) {
-        response.sendRedirect("/shop/account.jsp");
+        response.sendRedirect("account.jsp");
     }else {
         GioHang cart = (GioHang) session.getAttribute("cart");
         if (cart == null) {
@@ -85,10 +85,10 @@
                         </td>
 
                         <td class=" cart_description">
-                                <h4><a href=""><%=ds.getKey().getTen_san_pham()%>
-                                </a></h4>
-                                <p>Mã Sản Phẩm: <%=ds.getKey().getMa_san_pham()%>
-                                </p>
+                            <h4><a href=""><%=ds.getKey().getTen_san_pham()%>
+                            </a></h4>
+                            <p>Mã Sản Phẩm: <%=ds.getKey().getMa_san_pham()%>
+                            </p>
                         </td>
 
 
@@ -140,47 +140,42 @@
                             </table>
                         </td>
                     </tr>
-                    <a class="btn btn-default update" href="">Hủy Đơn Hàng </a>
                     </tbody>
                 </table>
+                <a class="btn right btn-default update" href="">Hủy Đơn Hàng </a>
             </div>
         </div>
     </section> <!--/#cart_items-->
 
-        <div class="container">
-            <div class="heading">
-                <h3>What would you like to do next?</h3>
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your
-                    delivery cost.</p>
-            </div>
-            <div class="step-one">
-                <h2 class="heading">Xác Nhập Mua Hàng</h2>
-            </div>
-            <div class="shopper-informations">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="shopper-info">
-                            <p>Xác nhận thanh toán</p>
-                            <form action="ThanhToanServlet" method="post">
-                                <input type="text" placeholder="Số điện thoại">
-                                <p>Địa chỉ giao hàng</p>
-                                <textarea name="dia_chi_giao_hang" placeholder="Note"
-                                          rows="5"></textarea>
+    <div class="container">
+        <div class="step-one">
+            <h2 class="heading">Xác Nhập Mua Hàng</h2>
+        </div>
+        <div class="shopper-informations">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="shopper-info">
+                        <p>Xác nhận thanh toán</p>
+                        <form action="ThanhToanServlet" method="post">
+                            <input type="text" placeholder="Số điện thoại">
+                            <p>Địa chỉ giao hàng</p>
+                            <input type="text" placeholder="Note Địa Chỉ Gia Hàng " name="dia_chi_giao_hang" rows="5"/>
 
-                                <p>Phương thức thanh toán:</p>
-                                <select name="phuong_thuc_thanh_toan">
-                                    <option value="1">Thanh Toán khi giao hàng</option>
-                                    <option value="2">Chuyển khoản ngân hàng</option>
-                                </select>
-                                <input type="hidden" value="<%=session.getAttribute("username")%>"/>
-                                <input type="submit" value="Xác nhận thanh toán" class="btn btn-primary">
-                            </form>
-                        </div>
+                            <p>Phương thức thanh toán:</p>
+<%--                            <select name="phuong_thuc_thanh_toan">--%>
+<%--                                <option value="1">Thanh Toán khi giao hàng</option>--%>
+<%--                                <option value="2">Chuyển khoản ngân hàng</option>--%>
+<%--                            </select>--%>
+                            <input type="text" placeholder="Thanh Toán khi giao hàng or (Chuyển khoản ngân hàng) " name="phuong_thuc_thanh_toan" rows="3"/>
+                            <input type="hidden" value="<%=session.getAttribute("username")%>"/>
+                            <button type="submit" class="btn btn-default">Xác nhận thanh toán</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!--/#do_action-->
+    </div>
+</section><!--/#do_action-->
 </section>
 <%
     }

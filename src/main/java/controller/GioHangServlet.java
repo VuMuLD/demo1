@@ -80,6 +80,7 @@ public class GioHangServlet extends HttpServlet {
                 default:
                     break;
             }
+
             RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
             rd.forward(request, response);
 
@@ -87,4 +88,5 @@ public class GioHangServlet extends HttpServlet {
 
         }
     }
+
 }

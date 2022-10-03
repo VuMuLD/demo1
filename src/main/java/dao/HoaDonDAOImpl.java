@@ -1,9 +1,7 @@
 package dao;
 
 import Context.DBContext;
-import model.ChiTietHoaDon;
 import model.HoaDon;
-import model.SanPham;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,25 +9,23 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ChiTietHoaDonDAOImpl implements ChiTietHoaDonDAO {
+public class HoaDonDAOImpl implements HoaDonDAO{
     @Override
-    public void themCHiTietHD(ChiTietHoaDon cthd) {
+    public void themHoaDon(HoaDon hd) {
             Connection cons = DBContext.getInstance().getConnection();
-            String sql = "insert into chi_tiet_hoa_don value (?,?,?,?,?,?)";
+            String sql = "insert into hoa_don value (?,?,?,?,?,?)";
             try {
                 PreparedStatement ps = cons.prepareStatement(sql);
-                ps.setInt(1, cthd.getMa_chi_tiet_hoa_don());
-                ps.setString(2, cthd.getHoa_don().getMa_hoa_don());;
-                ps.setInt(3, cthd.getSan_pham().getMa_san_pham());
-                ps.setInt(4, cthd.getSo_luong());
-                ps.setInt(5, cthd.getDon_gia());
-                ps.setInt(6, cthd.getGiam_gia());
+                ps.setString(1, hd.getMa_hoa_don());
+                ps.setString(2, hd.getMa_tai_khoan().getMa_tai_khoan());
+                ps.setString(3, hd.getDia_chi_giao_hang());
+                ps.setString(4, hd.getPhuong_thuc_thanh_toan());
+                ps.setTimestamp(5, hd.getNgay_mua_hang());
+                ps.setInt(6, hd.getTinh_trang_don_hang());
                 ps.executeUpdate();
                 cons.close();
             } catch (SQLException ex) {
                 Logger.getLogger(TaiKhoanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
     }
-
-
+}

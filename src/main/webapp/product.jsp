@@ -51,6 +51,46 @@
 
 
 <div class="col-sm-9 padding-right">
+ <% if (request.getParameter("ma_danh_muc") == null ) {%>
+    <div class="features_items"><!--features_items-->
+        <h2 class="title text-center">Sản Phầm</h2>
+        <%for (SanPham sp : sanPhamDAO.getListProduct()) {%>
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="<%=sp.getHinh_anh()%>" alt=""/>
+                        <h2><%=nf.format(sp.getDon_gia())%>USD</h2>
+                        <p><%=sp.getTen_san_pham()%></p>
+                        <a href="GioHangServlet?command=insert&ma_san_pham=<%=sp.getMa_san_pham()%>&cartID=<%=System.currentTimeMillis()%>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ </a>
+                    </div>
+                    <div class="product-overlay">
+                        <div class="overlay-content">
+                            <h2><%=nf.format(sp.getDon_gia())%>USD</h2>
+                            <p><%=sp.getTen_san_pham()%>n</p>
+                            <a href="GioHangServlet?command=insert&ma_san_pham=<%=sp.getMa_san_pham()%>&cartID=<%=System.currentTimeMillis()%>" class="btn btn-default add-to-cart">
+                                <i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="choose">
+                    <ul class="nav nav-pills nav-justified">
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm danh sách</a></li>
+                        <li><a href="detail.jsp?ma_san_pham=<%=sp.getMa_san_pham()%>"><i class="fa fa-plus-square"></i>Xem Chi tiết</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <%
+            }
+        %>
+
+    </div>
+    <%
+ }
+    %>
+
+    <% if (request.getParameter("ma_danh_muc") != null ) {%>
     <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Sản Phầm</h2>
         <%for (SanPham sp : sanPhamDAO.getListProductByCategory(Integer.parseInt(request.getParameter("ma_danh_muc")))) {%>
@@ -85,6 +125,9 @@
 %>
 
 </div>
+    <%
+        }
+    %>
 </div>
 
 </body>

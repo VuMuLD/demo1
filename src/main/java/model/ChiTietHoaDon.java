@@ -2,16 +2,16 @@ package model;
 
 public class ChiTietHoaDon {
     private int ma_chi_tiet_hoa_don;
-    private String ma_hoa_don;
-    private int ma_san_pham;
+    private HoaDon hoa_don;
+    private SanPham san_pham;
     private int so_luong;
     private int don_gia;
     private int giam_gia;
 
-    public ChiTietHoaDon(int ma_chi_tiet_hoa_don, HoaDon ma_hoa_don, SanPham ma_san_pham, int so_luong, int don_gia, int giam_gia) {
+    public ChiTietHoaDon(int ma_chi_tiet_hoa_don, HoaDon hoa_don, SanPham san_pham, int so_luong, int don_gia, int giam_gia) {
         this.ma_chi_tiet_hoa_don = ma_chi_tiet_hoa_don;
-        this.ma_hoa_don = ma_hoa_don;
-        this.ma_san_pham = ma_san_pham;
+        this.hoa_don = hoa_don;
+        this.san_pham = san_pham;
         this.so_luong = so_luong;
         this.don_gia = don_gia;
         this.giam_gia = giam_gia;
@@ -25,20 +25,20 @@ public class ChiTietHoaDon {
         this.ma_chi_tiet_hoa_don = ma_chi_tiet_hoa_don;
     }
 
-    public String getMa_hoa_don() {
-        return ma_hoa_don;
+    public HoaDon getHoa_don() {
+        return hoa_don;
     }
 
-    public void setMa_hoa_don(String ma_hoa_don) {
-        this.ma_hoa_don = ma_hoa_don;
+    public void setHoa_don(HoaDon hoa_don) {
+        this.hoa_don = hoa_don;
     }
 
-    public int getMa_san_pham() {
-        return ma_san_pham;
+    public SanPham getSan_pham() {
+        return san_pham;
     }
 
-    public void setMa_san_pham(int ma_san_pham) {
-        this.ma_san_pham = ma_san_pham;
+    public void setSan_pham(SanPham san_pham) {
+        this.san_pham = san_pham;
     }
 
     public int getSo_luong() {

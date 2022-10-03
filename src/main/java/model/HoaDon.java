@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class HoaDon {
     private String ma_hoa_don;
-    private String ma_tai_khoan;
+    private TaiKhoan ma_tai_khoan;
     private String dia_chi_giao_hang;
     private String phuong_thuc_thanh_toan;
     private Timestamp ngay_mua_hang;
@@ -27,11 +27,11 @@ public class HoaDon {
         this.ma_hoa_don = ma_hoa_don;
     }
 
-    public String getMa_tai_khoan() {
+    public TaiKhoan getMa_tai_khoan() {
         return ma_tai_khoan;
     }
 
-    public void setMa_tai_khoan(String ma_tai_khoan) {
+    public void setMa_tai_khoan(TaiKhoan ma_tai_khoan) {
         this.ma_tai_khoan = ma_tai_khoan;
     }
 

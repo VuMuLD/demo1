@@ -2,6 +2,6 @@ package dao;
 
 import model.HoaDon;
 
-public interface HoaDonDao {
+public interface HoaDonDAO {
     public void themHoaDon(HoaDon hd);
 }

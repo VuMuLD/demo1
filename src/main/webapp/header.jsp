@@ -75,32 +75,23 @@
                                 USA
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
-                            </ul>
                         </div>
-
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                 DOLLAR
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="DangNhapServlet?command=logout"><i class="fa fa-user"></i><%=session.getAttribute("username")%> </a></li>
+                            <li><a href=""><i class="fa fa-user"></i><%=session.getAttribute("username")%> </a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart & Checkout</a></li>
                             <li><a href="account.jsp"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="DangNhapServlet"><i class="fa fa-lock"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -126,18 +117,13 @@
                             <li><a href="index.jsp" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
+                                    <li><a href="index.jsp">Products</a></li>
                                     <li><a href="details.jsp">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
                                     <li><a href="cart.jsp">Cart</a></li>
                                     <li><a href="account.jsp">Login</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="Servlet1">Blog<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="Servlet1">Blog List</a></li>
-                                    <li><a href="Servlet2">Blog Single</a></li>
-                                </ul>
                             </li>
                             <li><a href="error.jsp">404</a></li>
                             <li><a href="contact.jsp">Contact</a></li>

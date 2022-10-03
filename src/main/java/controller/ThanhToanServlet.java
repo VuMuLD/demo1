@@ -1,12 +1,15 @@
 package controller;
 
 import dao.ChiTietHoaDonDAOImpl;
-import dao.HoaDonDaoImpl;
+import dao.HoaDonDAOImpl;
 import model.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -15,7 +18,7 @@ import java.util.TreeMap;
 
 @WebServlet(name = "ThanhToanServlet", value = "/ThanhToanServlet")
 public class ThanhToanServlet extends HttpServlet {
-    private HoaDonDaoImpl hdDAO = new HoaDonDaoImpl();
+    private HoaDonDAOImpl hdDAO = new HoaDonDAOImpl();
     private ChiTietHoaDonDAOImpl cthdDAO = new ChiTietHoaDonDAOImpl();
 
     @Override
@@ -45,10 +48,10 @@ public class ThanhToanServlet extends HttpServlet {
             for (Map.Entry<SanPham, Integer> ds : list.entrySet()){
                 SanPham sp = new SanPham();
                 sp.setMa_san_pham(ds.getKey().getMa_san_pham());
-                cthdDAO.themChiTietHD(new ChiTietHoaDon(0, hd, sp, ds.getValue(), ds.getKey().getDon_gia(), ds.getKey().getGiam_gia()));
+                cthdDAO.themCHiTietHD(new ChiTietHoaDon(0, hd, sp, ds.getValue(), ds.getKey().getDon_gia(), ds.getKey().getGiam_gia()));
 
             }
-            response.sendRedirect("/demo/index.jsp");
+            response.sendRedirect("/index.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }
