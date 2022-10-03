@@ -114,35 +114,28 @@
                             <a class="cart_quantity_delete" href="GioHangServlet?command=remove&ma_san_pham=<%=ds.getKey().getMa_san_pham()%>&cartID=<%=System.currentTimeMillis()%>"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
-                    <%
-                        }
-                    %>
                     <tr>
                         <td colspan="4">&nbsp;</td>
                         <td colspan="2">
                             <table class="table table-condensed total-result">
-                                <tr>
-                                    <td>Cart Sub Total</td>
-                                    <td>$59</td>
-                                </tr>
-                                <tr>
-                                    <td>Exo Tax</td>
-                                    <td>$2</td>
-                                </tr>
                                 <tr class="shipping-cost">
                                     <td>Shipping Cost</td>
                                     <td>Free</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td><span>$61</span></td>
+                                    <td><span><%=nf.format(ds.getValue() * ds.getKey().getDon_gia())%> USD</span></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%
+                        }
+                    %>
+
                     </tbody>
                 </table>
-                <a class="btn right btn-default update" href="">Hủy Đơn Hàng </a>
+                <a class="btn btn-default update" href="DangNhapServlet">Hủy Đơn Hàng </a>
             </div>
         </div>
     </section> <!--/#cart_items-->
@@ -157,18 +150,16 @@
                     <div class="shopper-info">
                         <p>Xác nhận thanh toán</p>
                         <form action="ThanhToanServlet" method="post">
-                            <input type="text" placeholder="Số điện thoại">
                             <p>Địa chỉ giao hàng</p>
-                            <input type="text" placeholder="Note Địa Chỉ Gia Hàng " name="dia_chi_giao_hang" rows="5"/>
-
+                            <input type="text" placeholder="Note Địa Chỉ Giao Hàng " name="dia_chi_giao_hang" rows="5"/>
                             <p>Phương thức thanh toán:</p>
-<%--                            <select name="phuong_thuc_thanh_toan">--%>
-<%--                                <option value="1">Thanh Toán khi giao hàng</option>--%>
-<%--                                <option value="2">Chuyển khoản ngân hàng</option>--%>
-<%--                            </select>--%>
-                            <input type="text" placeholder="Thanh Toán khi giao hàng or (Chuyển khoản ngân hàng) " name="phuong_thuc_thanh_toan" rows="3"/>
+                            <select name="phuong_thuc_thanh_toan">
+                                <option value="1">Thanh Toán khi giao hàng</option>
+                                <option value="2">Chuyển khoản ngân hàng</option>
+                            </select>
+<%--                            <input type="text" placeholder="Thanh Toán khi giao hàng or (Chuyển khoản ngân hàng) " name="phuong_thuc_thanh_toan" rows="3"/>--%>
                             <input type="hidden" value="<%=session.getAttribute("username")%>"/>
-                            <button type="submit" class="btn btn-default">Xác nhận thanh toán</button>
+                            <button type="submit" class="btn btn-default update">Xác nhận thanh toán</button>
                         </form>
                     </div>
                 </div>

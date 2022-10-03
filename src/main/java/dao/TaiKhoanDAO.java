@@ -14,4 +14,6 @@ public interface TaiKhoanDAO {
     public boolean kiemTraDangNhap(String ten_dang_nhap, String mat_khau);
 
     public TaiKhoan getTaiKhoan(String ten_dang_nhap);
+
+    public TaiKhoan getTaiKhoan1(String ten_dang_nhap);
 }
