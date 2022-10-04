@@ -1,7 +1,5 @@
-# Còn Thiếu
-- Dashboard
-- Login, Logout
-# Đã có 
+
+- Login, Logout 
 - Load Danh sách sản phẩm từ Database
 - Xem giỏ hàng
 - Thêm sửa xóa item vào giỏ hàng
